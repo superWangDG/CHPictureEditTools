@@ -16,7 +16,7 @@ let package = Package(
     targets: [
         .target(
             name: "CHPictureEditTools"),
-            path: "Sources"
+            path: "CHPictureEditTools/Sources"
         ),
     ]
 )

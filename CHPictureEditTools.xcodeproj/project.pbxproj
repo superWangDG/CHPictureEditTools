@@ -15,8 +15,8 @@
 		0F54A0AC617F13F3E66B0729 /* Pods-CHPictureEditTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CHPictureEditTools.release.xcconfig"; path = "Target Support Files/Pods-CHPictureEditTools/Pods-CHPictureEditTools.release.xcconfig"; sourceTree = "<group>"; };
 		184436912D7165DD00400503 /* CHPictureEditTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CHPictureEditTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		184436A02D7194A700400503 /* CHPictureEditTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHPictureEditTools.h; sourceTree = "<group>"; };
-		184436B32D71997500400503 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		184436B42D719A7F00400503 /* CHTestTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHTestTools.swift; sourceTree = "<group>"; };
+		184436E92D71B7FC00400503 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
 		4FD822B1655776845B35E7AA /* Pods_CHPictureEditTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CHPictureEditTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51853A82A8EF8A4A80DAFE72 /* Pods-CHPictureEditTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CHPictureEditTools.debug.xcconfig"; path = "Target Support Files/Pods-CHPictureEditTools/Pods-CHPictureEditTools.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,7 +54,7 @@
 		184436A12D7194A700400503 /* CHPictureEditTools */ = {
 			isa = PBXGroup;
 			children = (
-				184436B32D71997500400503 /* Package.swift */,
+				184436E92D71B7FC00400503 /* Package.swift */,
 				184436B12D71994300400503 /* Sources */,
 				184436A02D7194A700400503 /* CHPictureEditTools.h */,
 			);
