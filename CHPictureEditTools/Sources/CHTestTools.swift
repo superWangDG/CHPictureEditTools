@@ -5,6 +5,8 @@
 //  Created by apple on 2025/2/28.
 //
 
+import Foundation
+
 public class CHTestTools: NSObject {
     public override init() {
         super.init()
