@@ -6,7 +6,7 @@
 //
 
 public class CHTestTools {
-    func printTest() {
+    public func printTest() {
         print("输出了测试的信息")
     }
 }
