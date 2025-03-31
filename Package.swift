@@ -13,6 +13,11 @@ let package = Package(
             name: "CHPictureEditTools",
             targets: ["CHPictureEditTools"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/longitachi/ZLPhotoBrowser", .upToNextMinor(from: "4.5.8")),
+        .package(url: "https://github.com/SnapKit/SnapKit", .upToNextMinor(from: "5.7.1")),
+        
+    ],
     targets: [
         .target(
             name: "CHPictureEditTools",

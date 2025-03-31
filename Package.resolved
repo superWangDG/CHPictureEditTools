@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "ZLPhotoBrowser",
+        "repositoryURL": "https://github.com/longitachi/ZLPhotoBrowser",
+        "state": {
+          "branch": null,
+          "revision": "6f6de1bc1e53d4209aca40579d496a002a1158dd",
+          "version": "4.5.8"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
