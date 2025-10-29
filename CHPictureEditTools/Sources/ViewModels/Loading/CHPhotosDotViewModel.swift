@@ -25,11 +25,8 @@ class CHPhotosDotViewModel: CHPhotoDotViewModelProtocol {
         let totalSpacing = CGFloat(config.numberOfDots - 1) * config.spacing
         return CGFloat(config.numberOfDots) * config.size + totalSpacing
     }
-    func startAnimation() {
-        isAnimating = true
-    }
-    func stopAnimation() {
-        isAnimating = false
+    func animation(_ isStart: Bool) {
+        isAnimating = isStart
     }
     func handleConfigUpdate(_ newConfig: CHPhotosDotModel) {
         config = newConfig

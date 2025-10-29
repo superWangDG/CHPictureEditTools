@@ -24,6 +24,8 @@ class CHPhotosDotView: UIView, CHPhotoDotViewProtocol {
             bindViewModel()
         }
     }
+    weak var delegate: CHPhotoDotDelegate?
+    
     private var dotViews: [UIView] = []
     private var cancellables = Set<AnyCancellable>()
     
@@ -37,9 +39,16 @@ class CHPhotosDotView: UIView, CHPhotoDotViewProtocol {
         super.init(coder: coder)
         setupViews()
     }
-    override func sizeThatFits(_ size: CGSize) -> CGSize { CGSize(width: viewModel.totalWidth, height: viewModel.config.size) }
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        let size = CGSize(width: viewModel.totalWidth, height: viewModel.config.size)
+        return size
+    }
     
-    override var intrinsicContentSize: CGSize { CGSize(width: viewModel.totalWidth, height: viewModel.config.size) }
+    override var intrinsicContentSize: CGSize {
+        let size = CGSize(width: viewModel.totalWidth, height: viewModel.config.size)
+        self.delegate?.dotSizeChange(size)
+        return size
+    }
     
     deinit {
         cancellables.forEach({ $0.cancel() })
@@ -55,9 +64,10 @@ private extension CHPhotosDotView {
                 self?.handleConfigChange()
             }
             .store(in: &cancellables)
-        // 动画状态绑定
+        // 动画状态绑定 removeDuplicates 避免重复值触发，dropFirst 不触发初始值
         viewModel.$isAnimating
             .removeDuplicates()
+            .dropFirst()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isAnimating in
                 isAnimating ? self?.startAnimation() : self?.stopAnimation()
@@ -139,11 +149,11 @@ private extension CHPhotosDotView {
         }
     }
     func startAnimation() {
-        viewModel.startAnimation()
+        viewModel.animation(true)
         animateDots()
     }
     func stopAnimation() {
-        viewModel.stopAnimation()
+        viewModel.animation(false)
         resetDots()
     }
 }

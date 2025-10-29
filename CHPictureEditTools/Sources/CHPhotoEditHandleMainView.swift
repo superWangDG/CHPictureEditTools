@@ -95,7 +95,7 @@ internal extension CHPhotoEditHandleMainView {
     ///   - complete: 是否完成
     ///   - text: 显示的文本
     func loadingHandleImage(_ complete: Bool = false, text: String? = nil) {
-        mShowView.loadingHandleImage(complete, text: text)
+//        mShowView.loadingHandleImage(complete, text: text)
     }
     /// 设置橡皮擦的大小
     /// - Parameter size: 屏幕的像素（会转为画布的比例）

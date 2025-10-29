@@ -19,15 +19,15 @@ class CHPhotoEditHandleContentView: UIView {
     
     var visibleSize: CGPoint = .zero
     /// 加载处理的视图
-    func loadingHandleImage(_ complete: Bool = false, text: String? = nil) {
-//        mLoadingView.mLabBottom.text = text
-        mLoadingView.isHidden = complete
-        if !complete {
-//            mLoadingView.startAnimation()
-        } else {
-//            mLoadingView.stopAnimation()
-        }
-    }
+//    func loadingHandleImage(_ complete: Bool = false, text: String? = nil) {
+////        mLoadingView.mLabBottom.text = text
+//        mLoadingView.isHidden = complete
+//        if !complete {
+////            mLoadingView.startAnimation()
+//        } else {
+////            mLoadingView.stopAnimation()
+//        }
+//    }
     // 设置图片
     func setImage(_ image: UIImage) {
         mEditEraserPerview.editImage = image
@@ -96,9 +96,17 @@ class CHPhotoEditHandleContentView: UIView {
     private var movingChange: PhotoEditMovingHandle?
     // 加载的视图
     private(set) lazy var mLoadingView: CHPhotoLoadingView = {
-        let view = CHPhotoLoadingView(viewModel: CHPhotoLoadingViewModel())
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.isHidden = true
+        let view = CHPhotoLoadingView()
+//        view.translatesAutoresizingMaskIntoConstraints = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+            view.viewModel.showLoading()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+                view.viewModel.showLoading(show: false)
+            })
+            
+        })
+        
         return view
     }()
     // 图片视图
@@ -188,8 +196,8 @@ private extension CHPhotoEditHandleContentView {
         addSubview(mImgPlaceholder)
         addSubview(mImgShowView)
         addSubview(mEditEraserPerview)
-        addSubview(mLoadingView)
         addSubview(mEraserSizeView)
+        addSubview(mLoadingView)
         mImgPlaceholder.snp.makeConstraints({
             $0.edges.equalToSuperview()
         })

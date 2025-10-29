@@ -19,3 +19,8 @@ protocol CHPhotoDotViewModelProtocol: AnyObject {
     func handleConfigUpdate(_ newConfig: CHPhotosDotModel)
 }
 
+protocol CHPhotoDotDelegate: AnyObject {
+    func dotSizeChange(_ size: CGSize)
+}
+
+

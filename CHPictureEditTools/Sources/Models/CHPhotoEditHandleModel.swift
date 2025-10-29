@@ -270,12 +270,12 @@ class CHPhotoEditHandleModel: NSObject {
     }
     /// 橡皮擦移动完成后的逻辑处理
     func eraserChangeLogicHandle(_ image: UIImage) {
-        if imageRecordList.count == 0 {
-            imageRecordList.append(self.view.originalImage!)
-        }
-        imageRecordList.append(image)
-        recordIndex = imageRecordList.count - 1
-        resetEditEraserToolsViewBtnStatus()
+//        if imageRecordList.count == 0 {
+//            imageRecordList.append(self.view.originalImage!)
+//        }
+//        imageRecordList.append(image)
+//        recordIndex = imageRecordList.count - 1
+//        resetEditEraserToolsViewBtnStatus()
     }
     // 提交使用橡皮擦选择的图片路径
     func submitEraserRecordList() {

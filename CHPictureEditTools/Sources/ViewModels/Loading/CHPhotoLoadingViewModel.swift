@@ -19,6 +19,10 @@ public class CHPhotoLoadingViewModel: CHPhotoLoadingViewModelProtocol {
     @Published private(set) var isLoading = false
     @Published private(set) var config: CHPhotoLoadingModel
     private var cancellabels = Set<AnyCancellable>()
+    var animationDuration: TimeInterval {
+        get { config.animationDuration }
+    }
+    
     init(provider: CHPhotoLoadingProvider = CHConstConfig.default()) {
         self.provider = provider
         self.config = provider.loadingConfigModel
@@ -33,5 +37,9 @@ public class CHPhotoLoadingViewModel: CHPhotoLoadingViewModelProtocol {
     }
     func handleConfigUpdate(_ newConfig: CHPhotoLoadingModel) {
         self.config = newConfig
+    }
+    
+    func showLoading(show: Bool = true) {
+        isLoading = show
     }
 }

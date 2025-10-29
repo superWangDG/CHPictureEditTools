@@ -15,6 +15,7 @@ struct CHPhotoLoadingModel {
     let tipFont: UIFont
     let bottomColor: UIColor
     let bottomFont: UIFont
+    let animationDuration: TimeInterval
     
     static let `default` = CHPhotoLoadingModel(
         tip: "",
@@ -23,13 +24,13 @@ struct CHPhotoLoadingModel {
         tipColor: #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1),
         tipFont: .systemFont(ofSize: 14),
         bottomColor: #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1),
-        bottomFont: .systemFont(ofSize: 12)
+        bottomFont: .systemFont(ofSize: 12),
+        animationDuration: 0.35
     )
 }
 
 extension CHPhotoLoadingModel {
     struct Builder {
-        // 所有属性改为 Optional
         var tip: String?
         var bottomTip: String?
         var mainColor: UIColor?
@@ -37,8 +38,7 @@ extension CHPhotoLoadingModel {
         var tipFont: UIFont?
         var bottomColor: UIColor?
         var bottomFont: UIFont?
-        // 添加显式无参初始化器
-//        init() {}
+        var animationDuration: TimeInterval?
         func build(defaultModel: CHPhotoLoadingModel = .default) -> CHPhotoLoadingModel {
             CHPhotoLoadingModel(
                 tip: tip ?? defaultModel.tip,
@@ -47,7 +47,8 @@ extension CHPhotoLoadingModel {
                 tipColor: tipColor ?? defaultModel.tipColor,
                 tipFont: tipFont ?? defaultModel.tipFont,
                 bottomColor: bottomColor ?? defaultModel.bottomColor,
-                bottomFont: bottomFont ?? defaultModel.bottomFont
+                bottomFont: bottomFont ?? defaultModel.bottomFont,
+                animationDuration: animationDuration ?? defaultModel.animationDuration
             )
         }
     }
